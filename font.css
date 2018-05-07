@@ -1,0 +1,9 @@
+
+@font-face { 
+font-family: 'poeit'; 
+src: url(./poeit.ttf) format('truetype'); 
+} 
+body { 
+font-family: poeit; 
+}
+
