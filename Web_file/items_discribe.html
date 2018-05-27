@@ -62,14 +62,17 @@
 		function put_in_cart() {
 			if (confirm("장바구니에 넣으시겠습니까?")) {
 				alert("장바구니에 넣었습니다.");
+				window.close();
 			} else {
 				alert("취소 되었습니다.");
+
 			}
 		}
 
 		function buying() {
 			if (confirm("구매 하시겠습니까?")) {
 				alert("구매 완료");
+				window.close();
 			} else {
 				alert("구매 취소");
 			}
