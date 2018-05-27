@@ -1,0 +1,96 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <style>
+        body {
+            min-width: 1200px;
+        }
+    </style>
+    <link href="font2.css" rel="stylesheet" type="text/css" />
+    <style>
+        #view_all>form>a>input[type=button] {
+            width: 10%;
+            font-family: NanumGothic;
+            font-size: 15pt;
+            background-color: rgb(61, 61, 61);
+            color: white;
+            padding: 2px 2px;
+            margin: 0 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #view_all>form>input[type=text] {
+            width: 70%;
+            font-size: 15pt;
+            font-family: NanumGothic;
+            padding: 2px 2px;
+            margin: 0 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #view_all>form>input[type=submit] {
+            width: 10%;
+            font-size: 15pt;
+            font-family: NanumGothic;
+            background-color: rgb(61, 61, 61);
+            color: white;
+            padding: 2px 2px;
+            margin: 0 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #view_all>form>input[type=submit]:hover {
+            background-color: #979797;
+            font-size: 15pt;
+            font-family: NanumGothic;
+        }
+
+        #view_all>form>a>input[type=button]:hover {
+            background-color: #979797;
+            font-size: 15pt;
+            font-family: NanumGothic;
+        }
+    </style>
+    <script language=javascript>
+        function Search() {
+            var data = form1.keyword__search.value;
+            if (data == "반팔티") {
+                if (confirm( data+ " 에 대한 검색결과를 새창으로 보시겠습니까?")) {
+                    window.open("./detail_items.html", "상세보기",
+				"width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes, left=500px,top=25px")
+                }else{
+                    alert("취소 되셨습니다.");
+                }
+            }else if(data == "") {
+                alert("찾으실 상품 이름을 한글자 이상 입력해주세요");
+            }
+            else {
+                alert("찾으시는 상품  [  " + data + "  ]  (은)는 없습니다.");
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <nav id="view_all">
+
+        <form name="form1">
+            <a href="./items.html" target="items"><input type="button" name="view_all_items" value="View All Items"/></a>
+            <label for="keyword_search"> Input Keyword </label>
+            <input type="text" id="keyword_search" name="keyword__search" placeholder="    찾으실 상품을 검색해 주세요">
+            <input type="submit" name="Log_in" value="Search" onclick="Search();" />
+        </form>
+    </nav>
+</body>
+
+</html>
