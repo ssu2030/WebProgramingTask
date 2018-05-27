@@ -58,6 +58,23 @@
 			font-size: 14pt;
 		}
 	</style>
+	<script language=javascript>
+		function put_in_cart() {
+			if (confirm("장바구니에 넣으시겠습니까?")) {
+				alert("장바구니에 넣었습니다.");
+			} else {
+				alert("취소 되었습니다.");
+			}
+		}
+
+		function buying() {
+			if (confirm("구매 하시겠습니까?")) {
+				alert("구매 완료");
+			} else {
+				alert("구매 취소");
+			}
+		}
+	</script>
 
 
 
@@ -113,8 +130,8 @@
 		<form align="center" method="post" action="">
 			<br>
 			<br>
-			<input type="button" value="Put in CART" />
-			<input type="button" value="BUYING" />
+			<input type="button" value="Put in CART" onclick="put_in_cart();" />
+			<input type="button" value="BUYING" onclick="buying" ();/>
 		</form>
 	</CENTER>
 
