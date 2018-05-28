@@ -9,25 +9,36 @@
             window.open("./items_discribe.html", "상세보기",
                 "width=400, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes, left=500px,top=25px")
         }
+        //주문을 눌렀을 경우 일어나는 이벤트 -----------------------------------------------------------------------------------------
         function order() {
             var data_checkbox = checkbox_form.check_01.checked;
+            //폼에 있는 체크 박스가 체크되어있는지 확인 하는 변수
             var data_place = place_form.place.value;
+            //장소 select에서 value를 받아오는 변수
             var data_deal_time = deal_time_form.deal_time.value;
+            //거래시간 selcet에서 value를 받아오는 변수
             if (data_checkbox == false) {
+                //체크되지 않았을 경우
                 alert("주문하실 물건을 체크해 주세요.");
             } else {
                 if (data_place == 0) {
+                    //option = 0은 선택하세요로 두었다
+                    //따라서 초기 값일 경우 선택하라는 alert();
                     alert("거래할 장소를 선택해 주세요.");
                 } else {
                     if (data_deal_time == 0) {
+                        //option = 0은 선택하세요로 두었다
+                    //따라서 초기 값일 경우 선택하라는 alert();
                         alert("거래할 시간를 선택해 주세요.");
                         return;
-                    } else {}
+                    } else {
                         var select_place = place_form.place.options[place_form.place.selectedIndex].text;
+                        //이 변수는 place_form의 place라는 이름을 가진 select에서 선택된 인덱스의 텍스트를 가져오는 변수이다. 
                         var select_time = deal_time_form.deal_time.options[deal_time_form.deal_time.selectedIndex].text;
-
+                        //이 변수는 deal_time_form의 deal_time라는 이름을 가진 select에서 선택된 인덱스의 텍스트를 가져오는 변수이다. 
                         if (confirm("장소 : " + select_place + "\n" + "시간 : " + select_time + "\n" + "에 거래하시겠습니까?")) {
                             alert("주문이 완료되었습니다.");
+                            //아래 세줄은 주문하고나서의 장바구니 옵션값 초기화 코드
                             checkbox_form.check_01.checked = false;
                             place_form.place.value = 0;
                             deal_time_form.deal_time.value = 0;
@@ -39,6 +50,7 @@
                 }
 
             }
+        }
 
 
         
