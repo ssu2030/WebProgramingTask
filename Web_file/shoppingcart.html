@@ -1,0 +1,219 @@
+﻿<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="table.css" rel="stylesheet" type="text/css" />
+    <link href="font2.css" rel="stylesheet" type="text/css" />
+    <script language=javascript>
+        function show_items() {
+            window.open("./items_discribe.html", "상세보기",
+                "width=400, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes, left=500px,top=25px")
+        }
+        function order() {
+            var data_checkbox = checkbox_form.check_01.checked;
+            var data_place = place_form.place.value;
+            var data_deal_time = deal_time_form.deal_time.value;
+            if (data_checkbox == false) {
+                alert("주문하실 물건을 체크해 주세요.");
+            } else {
+                if (data_place == 0) {
+                    alert("거래할 장소를 선택해 주세요.");
+                } else {
+                    if (data_deal_time == 0) {
+                        alert("거래할 시간를 선택해 주세요.");
+                    } else {}
+                        var select_place = place_form.place.options[place_form.place.selectedIndex].text;
+                        var select_time = deal_time_form.deal_time.options[deal_time_form.deal_time.selectedIndex].text;
+
+                        if (confirm("장소 : " + select_place + "\n" + "시간 : " + select_time + "\n" + "에 거래하시겠습니까?")) {
+                            alert("주문이 완료되었습니다.");
+                            checkbox_form.check_01.checked = false;
+                            place_form.place.value = 0;
+                            deal_time_form.deal_time.value = 0;
+                        } else {
+                            alert("주문이 취소되었습니다.");
+                        }
+
+                    }
+                }
+
+            }
+
+
+        
+        
+    </script>
+    <style type="text/css">
+        a:link {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: black;
+            text-decoration: underline;
+        }
+    </style>
+
+    <style>
+        input[type=button] {
+            width: 80px;
+            height: 30px;
+            background-color: rgb(61, 61, 61);
+            color: white;
+            padding: 0px 0px;
+            margin: 0 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: NanumGothic;
+            margin-right: 20px;
+            font-size: 14pt;
+        }
+
+        input[type=button]:hover {
+            background-color: #979797;
+            font-size: 14pt;
+        }
+
+        input[type=reset] {
+            width: 80px;
+            height: 30px;
+            background-color: rgb(61, 61, 61);
+            color: white;
+            padding: 0px 0px;
+            margin: 0 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: NanumGothic;
+            font-size: 14pt;
+        }
+
+        input[type=reset]:hover {
+            background-color: #979797;
+            font-size: 14pt;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: NanumGothic;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <center>
+        <table class="ex1">
+            <caption>
+                <H1>Shopping Cart</H1>
+            </caption>
+            <thead>
+                <tr>
+                    <th scope="col">체크</th>
+                    <th scope="col">분류</th>
+                    <th scope="col">품명</th>
+                    <th scope="col">판매자</th>
+                    <th scope="col">캐비넷번호</th>
+                    <th scope="col">시간</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class="odd">
+                    <th scope="row">
+                        <form name="checkbox_form">
+                            <input type="checkbox" name="check_01">
+                        </form>
+                    </th>
+                    <td class="date1">옷</td>
+                    <td class="desc">
+                        <a href="#" onclick="show_items();">Lacoste T(navy)</a>
+                    </td>
+                    <td>이동호</td>
+                    <td>
+                        <form name="place_form">
+                            <select name="place">
+
+                                <option value="0">선택해주세요</option>
+
+                                <option value="1">기념관</option>
+
+                                <option value="2">중앙도서관</option>
+
+                                <option value="3">새빛관</option>
+
+                                <option value="4">참빛관</option>
+
+                                <option value="5">비마관</option>
+
+                                <option value="6">옥의관</option>
+
+                                <option value="7">한울관</option>
+
+                                <option value="8">문화관</option>
+
+                                <option value="9">누리관</option>
+
+                            </select>
+                        </form>
+                    </td>
+                    <td>
+                        <form name="deal_time_form">
+                            <select name="deal_time">
+
+                                <option value="0">선택해주세요</option>
+
+                                <option value="1">09:00-09:50</option>
+
+                                <option value="2">10:00-10:50</option>
+
+                                <option value="3">11:00-11:50</option>
+
+                                <option value="4">12:00-12:50</option>
+
+                                <option value="5">13:00-13:50</option>
+
+                                <option value="6">14:00-14:50</option>
+
+                                <option value="7">15:00-15:50</option>
+
+                                <option value="8">16:00-16:50</option>
+
+                                <option value="9">17:00-17:50</option>
+
+                            </select>
+                        </form>
+
+
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </center>
+    <center>
+        <br>
+        <br>
+        <br>
+
+        <input type="button" value="ORDER" name="order_button" onclick="order();" />
+        <input type="reset" value="DELETE" />
+    </center>
+</body>
+
+</html>

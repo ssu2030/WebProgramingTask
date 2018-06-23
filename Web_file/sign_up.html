@@ -1,0 +1,311 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link href="./font2.css" rel="stylesheet" type="text/css" />
+    <style>
+        #name>input[type=text] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #name>input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #id>input[type=text] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #id>input[type=button] {
+            width: 49%;
+            background-color: rgb(61, 61, 61);
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #id>input[type=submit]:hover {
+            background-color: #979797;
+        }
+
+        #RRD>input[type=password] {
+            width: 48.5%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #RRD>input[type=text] {
+            width: 48.5%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #phone>select {
+            width: 32%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #phone>input[type=text] {
+            width: 31%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #job>select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #sign_up>input[type=button] {
+            width: 100%;
+            background-color: rgb(61, 61, 61);
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #sign_up>input[type=button]:hover {
+            background-color: #979797;
+        }
+
+        div {
+            border-radius: 10px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+    </style>
+    <script type="text/javascript">
+        // 아이디 검사 ---------------------------------------------------------------------------
+        function check_id() {
+
+            var form = document.signup_form;
+
+            if (form.input_ID.value == "leedongho") {
+
+                alert("이미 사용중인 아이디입니다.")
+                form.input_ID.value = "";
+                return;
+            } else {
+
+                if (form.input_ID.value.length < 4 || form.input_ID.value.length > 12) {
+                    // 아이디 문자 수 제한 부분 ---------------------------------------------------
+                    alert("아이디는 4~12자 이내로 입력 가능합니다.");
+                    form.input_ID.value = "";
+                    form.input_ID.select();
+                    return;
+                }
+                //포문을 돌면서 문자들을 검사한다 -----------------------------------------------------------------------
+                for (i = 0; i < form.input_ID.value.length; i++) {
+                    var ch = form.input_ID.value.charAt(i);
+                    //입력된 문자를 검사-----------------------------------------------------------------------------
+                    if ((ch < "a" || ch > "z") && (ch < "A" || ch > "Z") && (ch < "0" || ch > "9")) {
+                        alert("아이디는 영문 소문자로만 입력 가능 합니다");
+                        form.input_ID.select();
+                        return;
+                    }
+                }
+                //입력된 아이디가 숫자로 시작하는지 검사하는 부분----------------------------------------------------------
+                if (!isNaN(form.input_ID.value.substr(0, 1))) {
+
+                    alert("아이디는 숫자로 시작할 수 없습니다");
+                    form.input_ID.select();
+                    return;
+                }
+                alert("사용 하실 수 있는 아이디 입니다.");
+                return;
+            }
+        }
+        // sign up 함수 부분 -------------------------------------------------------------------------------------
+        function sign_up() {
+            var form = document.signup_form;
+            if (form.input_name.value == "") {
+                alert("이름을 입력해야합니다.");
+                form.input_name.focus();
+                return;
+            }
+            //아이디에서 입력 필수 조건문 --------------------------------------------------------------------------
+            if (form.input_ID.value == "") {
+                alert("아이디를 입력해야 합니다.");
+                form.input_ID.focus();
+                return;
+            }
+            if (form.input_PW.value == "") {
+                alert("비밀번호를 입력해야 합니다.");
+                form.input_PW.focus();
+                return;
+            }
+            if (form.input_PW_check.value == "") {
+                alert("비밀번호 확인을 입력해야 합니다.");
+                form.input_PW_check.focus();
+                return;
+            }
+            if (form.input_PW_check.value != form.input_PW.value) {
+                alert("입력한 비밀번호가 서로 다릅니다.");
+                form.input_PW_check.value = "";
+                form.input_PW_check.focus(); //포커스를 id박스로 이동.
+                return;
+            }
+            if (form.input_RRN1.value.length != 6) {
+                alert("주민번호 앞자리가 틀렸습니다.");
+                form.input_RRN1.value = "";
+                form.input_RRN1.select(); //입력한 문자를 선택 상태로 만듬.
+                return;
+            }
+            if (form.input_RRN1.value.length == 6) {
+                if (form.input_RRN2.value.length != 7) {
+                    alert("주민번호 뒷자리가 틀렸습니다.");
+                    form.input_RRN2.value = "";
+                    form.input_RRN2.select(); //입력한 문자를 선택 상태로 만듬.
+                    return;
+                }
+            }
+            if (form.input_PN1.value.length != 4) {
+                alert("핸드폰 앞번호를 정확히 입력해 주세요.");
+                form.input_PN1.value = "";
+                form.input_PN1.select(); //입력한 문자를 선택 상태로 만듬.
+                return;
+            }
+            if (form.input_PN1.value.length == 4) {
+                if (form.input_PN2.value.length != 4) {
+                    alert("핸드폰 뒷번호를 정확히 입력해 주세요.");
+                    form.input_PN2.value = "";
+                    form.input_PN2.select(); //입력한 문자를 선택 상태로 만듬
+                    return;
+                }
+
+            }
+            if (form.input_name.value.length != 0 && form.input_ID.value.length != 0 && form.input_PW.value.length !=
+                0 &&
+                form.input_PW_check.value.length != 0 && form.input_RRN1.value.length != 0 && form.input_RRN2.value
+                .length !=
+                0 &&
+                form.input_PN1.value.length != 0 && form.input_PN2.value.length != 0) {
+                alert("회원가입을 축하드립니다.");
+                window.close();
+            }
+
+        }
+
+    </script>
+
+
+</head>
+
+<body>
+    <form name="signup_form" action="#">
+        <center>
+            <h1>SIGN UP</h1>
+        </center>
+        <nav id="name">
+            <label for="id_info">NAME</label>
+            <br>
+            <input type="text" id="name_Info" name="input_name" placeholder="Input your name..">
+            <br>
+        </nav>
+        <nav id="id">
+            <label for="id_info">ID</label>
+            <br>
+            <input type="text" id="id_Info" name="input_ID" placeholder="Input your ID..">
+            <input type="button" name="check_ID" value="ID Check" onclick="check_id();" />
+            <br>
+        </nav>
+        <nav id="name">
+            <label for="pw_Info">Password</label>
+            <br>
+            <input type="password" id="pw_Info" name="input_PW" placeholder="Input your Password..">
+            <br>
+            <label for="pw_check_Info">Password Check</label>
+            <br>
+            <input type="password" id="pw_check_Info" name="input_PW_check" placeholder="Input your Password..">
+            <br>
+        </nav>
+        <nav id="RRD">
+            <label for="RRN_Info">Resident Registration Number</label>
+            <br>
+            <input type="text" name="input_RRN1" maxlength="6" size="6" /> -
+            <input type="password" name="input_RRN2" maxlength="7" size="7" />
+            <br>
+        </nav>
+        <nav id="phone">
+            <label for="CP_Info">Cell Phone Number</label>
+            <br>
+            <select id="tel_info" item-width="20%">
+                <option value="t010">010</option>
+                <option value="t011">011</option>
+                <option value="t016">016</option>
+                <option value="t017">017</option>
+                <option value="t019">019</option>
+            </select>
+            -
+            <input type="text" name="input_PN1" maxlength="4" width="30%" /> -
+            <input type="text" name="input_PN2" maxlength="4" width="30%" />
+            <br>
+        </nav>
+        <nav id="job">
+            <label for="LG_Info">JOB</label>
+            <br>
+            <select id="grade_info">
+                <option value="0">초등학교 졸업</option>
+                <option value="1">중학교 졸업</option>
+                <option value="2">고등학교 재학중</option>
+                <option value="3">고등학교 졸업</option>
+                <option value="4">대학교 재학중</option>
+                <option value="5">대학교 졸업</option>
+                <option value="6">직장인</option>
+                <option value="7">무직</option>
+            </select>
+        </nav>
+        <nav id="sign_up">
+            <input type="button" name="Log_in" value="SIGN UP" onclick="sign_up();" />
+        </nav>
+    </form>
+
+</body>
+
+</html>

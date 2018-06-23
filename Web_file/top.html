@@ -1,0 +1,79 @@
+﻿<html>
+
+<head>
+	<meta charset="utf-8">
+	<!--<link href="font2.css" rel="stylesheet" type="text/css"/>-->
+
+	<style>
+		@import url(font2.css);
+	</style>
+	<script src="jquery-3.3.1.min.js"></script>
+	
+
+	<script language=javascript>
+		function sign_up() {
+			window.open("./sign_up.html", "회원가입",
+				"width=620, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes,left=500px,top=25px");
+		}
+
+		function log_in() {
+			window.open("./log_in.html", "로그인",
+				"width=550, height=250, toolbar=no, menubar=no, scrollbars=no, resizable=yes,left=500px,top=100px");
+		}
+		
+	</script>
+	
+
+	<style>
+		body {
+			min-width: 600px;
+		}
+	</style>
+	<style>
+		input[type=submit] {
+			width: 80px;
+			height: 30px;
+			background-color: rgb(61, 61, 61);
+			color: white;
+			padding: 0px 0px;
+			margin: 0 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-family: NanumGothic;
+			font-size: 14pt;
+		}
+
+		input[type=submit]:hover {
+			background-color: #979797;
+			font-size: 14pt;
+		}
+
+		/*background="./background.gif"*/
+	</style>
+
+</head>
+
+<body align="right">
+
+
+	<div style="border: 1px ; float: left; width: 60%;">
+		<font size=12 color=b lack>
+			<strong> KW Market </strong>
+		</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+	</div>
+	<div style="border: 1px ; float: left; width: 39%;">
+		<form align="right" method="post" action="">
+
+			<p></p>
+			<input type="submit" value="LOG IN" onclick="log_in()" /> &nbsp;&nbsp;
+			<input type="submit" value="SIGN UP" onclick="sign_up()" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</form>
+	</div>
+	
+
+
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <link href="./font2.css" rel="stylesheet" type="text/css" />
+  <style>
+    input[type=text],
+    select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type=password],
+    select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type=button] {
+      width: 100%;
+      background-color: rgb(61, 61, 61);
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type=button]:hover {
+      background-color: #979797;
+    }
+
+    div {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+  </style>
+  <script language=javascript>
+    function send_info() {
+      var form = document.login_form;
+      if (form.input_ID.value == "") {
+
+        alert("아이디를 입력해야 합니다");
+
+        form.input_ID.focus(); 
+        return;
+      }
+   
+      if (form.input_ID.value == "leedongho" && form.input_PW.value == "2013726032") {
+        login_confirm();
+        form.submit();
+        
+      } else if (form.input_ID.value == "leedongho" && form.input_PW.value != "2013726032") {
+        alert("비밀번호가 틀리셨습니다.");
+
+      } else if (form.input_ID.value != "leedongho") {
+        alert("아이디가 없습니다.")
+        move_sign_in();
+      }
+
+      form.submit();
+
+      //로그인 확인 function
+      function login_confirm() {
+
+        if (confirm("안녕하세요 이동호님  로그인을 환영합니다.")) {
+          //form.submit(); 나중에 데이터베이스로 보낼때 추가 적으로 구현할 것 입니다.
+          alert("로그인 되셨습니다.");
+          window.close();
+        } else {
+          alert("로그인 하지 않으셨습니다.");
+        }
+      }
+      //회원가입창으로 이동시켜주는함수
+      function move_sign_in() {
+        if (confirm("회원가입을 하시겠습니까?")) {
+          window.close();
+          window.open("./sign_up.html", "회원가입",
+            "width=620, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
+        } else {
+          alert("취소 하였습니다.");
+        }
+      }
+
+      function find_password() {
+      }
+      //post 방식으로 로그인 정보를 디비에게 요청한다
+      //if() 만약 사용자 정보가 있다면 로그인을 허용한다
+      //else if() 아이디가 있으나 비밀번호가 틀리다면, 비밀번호가 틀렸다고해준다
+      //else () 회원정보가 없다고 회원가입하라고 해준다. 
+      //로그인이 되면, 물품을 올리게 만들어준다. 
+    }
+  </script>
+</head>
+
+<body>
+
+  <form name="login_form" action="#">
+    <label for="id_info">ID</label>
+    <input type="text" id="id_Info" name="input_ID" placeholder="Input your ID..">
+    <label for="pw_Info">Password</label>
+    <input type="password" id="pw_Info" name="input_PW" placeholder="Input your Password..">
+    <input type="button" name="Log_in" value="LOG IN" onclick="send_info();" />
+  </form>
+  
+</body>
+
+</html>

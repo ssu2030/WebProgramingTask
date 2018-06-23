@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="jquery.lightbox.css" />
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="jquery.lightbox.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poor+Story" rel="stylesheet">
+    <meta charset="utf-8" />
+
+    <title>slide image</title>
+
+
+
+    <script type="text/javascript" src="js/jquery.1.2.3.js"></script>
+    <!-- Add jQuery lightBox plugin script to the end of the DOM -->
+    <!-- Make sure there is a jQuery framework, loaded, before the plugin script loads -->
+    <script type="text/javascript" src="js/jquery.lightbox.js"></script>
+    <!-- Activate the jQuery lightBox plugin -->
+    <script type="text/javascript"></script>
+
+    <style>
+        @import url(font2.css);
+    </style>
+    <style>
+        body {
+            width: 1200px;
+            height: 600px;
+            font-family: 'Poor Story', cursive;
+        }
+
+        #page_out {
+            margin: 0 auto;
+            width: 1000px;
+            height: 680px;
+
+            background-color: white;
+        }
+
+        #page_out>#large_item {
+            width: 460px;
+            margin: 10px 10px;
+            height: 620px;
+            background-color: white;
+            float: left;
+        }
+
+        #page_out>#large_item:hover {
+            background-color: rgba(169, 169, 169, 0.233);
+        }
+
+        #page_out>#small_item {
+            width: 460px;
+            height: 620px;
+            margin: 10px 10px;
+            background-color: white;
+            float: right;
+        }
+
+        #page_out>#small_item>#entry {
+            width: 45%;
+            margin: 5px 5px;
+            height: 45%;
+            background-color: white;
+            float: left;
+        }
+
+        #page_out>#small_item>#entry:hover {
+            background-color: rgba(169, 169, 169, 0.233);
+        }
+    </style>
+    <style>
+        input[type=button] {
+            width: 80px;
+            height: 30px;
+            background-color: rgb(61, 61, 61);
+            color: white;
+            padding: 0px 0px;
+            margin: 0 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: NanumGothic;
+            font-size: 14px;
+        }
+
+        input[type=button]:hover {
+            background-color: #979797;
+
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+
+
+
+            var first_data = [{
+                    item_name: 'Shirts 01',
+                    item_src: './cloth/1.jpg',
+                    item_place: '한울관',
+                    item_price: '100,000 원',
+                    item_brand: 'Lacoste'
+                },
+                {
+                    item_name: 'Shirts 02',
+                    item_src: './cloth/2.jpg',
+                    item_place: '비마관',
+                    item_price: '110,000 원',
+                    item_brand: 'Lacoste'
+                },
+                {
+                    item_name: 'Shirts 03',
+                    item_src: './cloth/3.jpg',
+                    item_place: '화도관',
+                    item_price: '120,000 원',
+                    item_brand: 'Lacoste'
+                },
+                {
+                    item_name: 'Shirts 04',
+                    item_src: './cloth/4.jpg',
+                    item_place: '참빛관',
+                    item_price: '130,000 원',
+                    item_brand: 'Lacoste'
+                },
+                {
+                    item_name: 'Shirts 05',
+                    item_src: './cloth/5.jpg',
+                    item_place: '새빛관',
+                    item_price: '150,000 원',
+                    item_brand: 'Lacoste'
+                }
+            ]
+            var second_data = [{
+                    item_name: 'Shirts 06',
+                    item_src: './cloth/6.jpg',
+                    item_place: '새빛관',
+                    item_price: '140,000 원',
+                    item_brand: 'Lacoste'
+                },
+                {
+                    item_name: 'Shirts 07',
+                    item_src: './cloth/7.jpg',
+                    item_place: '한울관',
+                    item_price: '120,000 원',
+                    item_brand: 'Lacoste'
+                },
+                {
+                    item_name: 'Shirts 08',
+                    item_src: './cloth/8.jpg',
+                    item_place: '화도관',
+                    item_price: '130,000 원',
+                    item_brand: 'Lacoste'
+                },
+                {
+                    item_name: 'Shirts 09',
+                    item_src: './cloth/9.jpg',
+                    item_place: '새빛관',
+                    item_price: '110,000 원',
+                    item_brand: 'Lacoste'
+                },
+                {
+                    item_name: 'Shirts 10',
+                    item_src: './cloth/10.jpg',
+                    item_place: '누리관',
+                    item_price: '180,000 원',
+                    item_brand: 'Fred Perry'
+                }
+            ]
+
+            function show_first() {
+                
+                $('#data_0101').html('Shirts 01');
+                $('#gallery_a').attr({
+                    id: 'gallery_a',
+                    href: './cloth/1.jpg',
+                    title: 'Shirts 01'
+                });
+                $('#data_0102').attr({
+                    src: './cloth/1.jpg'
+                });
+                $('#data_0103').html('한울관');
+                $('#data_0104').html('100,000 원');
+                $('#data_0105').html('Lacoste');
+
+                $('#data_0201').html('Shirts 02');
+                $('#gallery_b').attr({
+                    id: 'gallery_b',
+                    href: './cloth/2.jpg',
+                    title: 'Shirts 02'
+                });
+                $('#data_0202').attr({
+                    src: './cloth/2.jpg'
+                });
+                $('#data_0203').html('비마관');
+                $('#data_0204').html('110,000 원');
+                $('#data_0205').html('Lacoste');
+
+                $('#data_0301').html('Shirts 03');
+                $('#gallery_c').attr({
+                    id: 'gallery_c',
+                    href: './cloth/3.jpg',
+                    title: 'Shirts 03'
+                });
+                $('#data_0302').attr({
+                    src: './cloth/3.jpg'
+                });
+                $('#data_0303').html('화도관');
+                $('#data_0304').html('120,000 원');
+                $('#data_0305').html('Lacoste');
+
+                $('#data_0401').html('Shirts 04');
+                $('#gallery_d').attr({
+                    id: 'gallery_d',
+                    href: './cloth/4.jpg',
+                    title: 'Shirts 04'
+                });
+                $('#data_0402').attr({
+                    src: './cloth/4.jpg'
+                });
+                $('#data_0403').html('참빛관');
+                $('#data_0404').html('130,000 원');
+                $('#data_0405').html('Lacoste');
+
+                $('#data_0501').html('Shirts 05');
+                $('#gallery_e').attr({
+                    id: 'gallery_e',
+                    href: './cloth/5.jpg',
+                    title: 'Shirts 05'
+                });
+                $('#data_0502').attr({
+                    src: './cloth/5.jpg'
+                });
+                $('#data_0503').html('새빛관');
+                $('#data_0504').html('150,000 원');
+                $('#data_0505').html('Lacoste');
+            }
+
+            function show_second() {
+                $('#data_0101').html('Shirts 06');
+                $('#gallery_a').attr({
+                    id: 'gallery_a',
+                    href: './cloth/6.jpg',
+                    title: 'Shirts 06'
+                });
+                $('#data_0102').attr({
+                    src: './cloth/6.jpg'
+                });
+                $('#data_0103').html('새빛관');
+                $('#data_0104').html('140,000 원');
+                $('#data_0105').html('Lacoste');
+
+                $('#data_0201').html('Shirts 07');
+                $('#gallery_b').attr({
+                    id: 'gallery_b',
+                    href: './cloth/7.jpg',
+                    title: 'Shirts 07'
+                });
+                $('#data_0202').attr({
+                    src: './cloth/7.jpg'
+                });
+                $('#data_0203').html('한울관');
+                $('#data_0204').html('120,000 원');
+                $('#data_0205').html('Lacoste');
+
+                $('#data_0301').html('Shirts 08');
+                $('#gallery_c').attr({
+                    id: 'gallery_c',
+                    href: './cloth/8.jpg',
+                    title: 'Shirts 08'
+                });
+                $('#data_0302').attr({
+                    src: './cloth/8.jpg'
+                });
+                $('#data_0303').html('화도관');
+                $('#data_0304').html('130,000 원');
+                $('#data_0305').html('Lacoste');
+
+                $('#data_0401').html('Shirts 09');
+                $('#gallery_d').attr({
+                    id: 'gallery_d',
+                    href: './cloth/9.jpg',
+                    title: 'Shirts 09'
+                });
+                $('#data_0402').attr({
+                    src: './cloth/9.jpg'
+                });
+                $('#data_0403').html('새빛관');
+                $('#data_0404').html('110,000 원');
+                $('#data_0405').html('Lacoste');
+
+                $('#data_0501').html('Shirts 10');
+                $('#gallery_e').attr({
+                    id: 'gallery_e',
+                    href: './cloth/10.jpg',
+                    title: 'Shirts 10'
+                });
+                $('#data_0502').attr({
+                    src: './cloth/10.jpg'
+                });
+                $('#data_0503').html('누리관');
+                $('#data_0504').html('180,000 원');
+                $('#data_0505').html('Fred Perry');
+            }
+
+            $('#prev').click(function () {
+                show_first();
+            });
+
+            $('#next').click(function () {
+                show_second();
+            });
+
+        });
+    </script>
+
+</head>
+
+<body>
+    <input type="button" id="prev" value="PREV" />
+    <input type="button" id="next" value="NEXT" />
+    <center>
+        <div class=gallery id="page_out">
+            <section id="large_item">
+                <TABLE id="item_01" cols=3 row=2>
+                    <tr>
+                        <td>
+                            <h2 id="data_0101">Shirts 01</h2>
+                        </td>
+                    </tr>
+                    <TR>
+                        <TD align=left colspan="2">
+                            <a id="gallery_a" href="./cloth/1.jpg" title="Shirts 01" rel="lightbox[page_out]">
+                                <img id="data_0102" src="./cloth/1.jpg" width="100%" height="400px">
+                            </a>
+                        </TD>
+                    </TR>
+                    <TH id="data_0103" colspan="2"> 한울관</TH>
+                    <TR>
+                        <TD id="data_0104" align=left>100,000 원</TD>
+                        <TD id="data_0105" align=left style="padding-right: 20px;">Lacoste</TD>
+                    </TR>
+                </TABLE>
+            </section>
+            <section id="small_item">
+                <div id="entry">
+                    <TABLE id="item_02" cols=3 row=2>
+                        <tr>
+                            <td id="data_0201">
+                                Shirts 02
+                            </td>
+                        </tr>
+                        <TR>
+                            <TD align=left colspan="2">
+                                <a id="gallery_b" href="./cloth/2.jpg" title="Shirts 02" rel="lightbox[page_out]">
+                                    <img id="data_0202" src="./cloth/2.jpg" width="100%" height="200px" onclick="show_items()">
+                            </TD>
+                        </TR>
+                        <TH id="data_0203" colspan="2"> 비마관</TH>
+                        <TR>
+                            <TD id="data_0204" align=left>110,000 원</TD>
+                            <TD id="data_0205" align=left>Lacoste</TD>
+                        </TR>
+                    </TABLE>
+                </div>
+                <div id="entry">
+                    <TABLE id="item_03" cols=3 row=2>
+                        <tr>
+                            <td id="data_0301">
+                                Shirts 03
+                            </td>
+                        </tr>
+                        <TR>
+                            <TD align=left colspan="2">
+                                    <a id="gallery_c" href="./cloth/3.jpg" title="Shirts 03" rel="lightbox[page_out]">
+                                <img id="data_0302" src="./cloth/3.jpg" width="100%" height="200px" onclick="show_items()">
+                            </TD>
+                        </TR>
+                        <TH colspan="2" id="data_0303"> 화도관</TH>
+                        <TR>
+                            <TD align=left id="data_0304">120,000 원</TD>
+                            <TD align=left id="data_0305">Lacoste</TD>
+                        </TR>
+                    </TABLE>
+                </div>
+                <div id="entry">
+                    <TABLE id="item_04" cols=3 row=2>
+                        <tr>
+                            <td id="data_0401">
+                                Shirts 04
+                            </td>
+                        </tr>
+                        <TR>
+                            <TD align=left colspan="2">
+                                    <a id="gallery_d" href="./cloth/4.jpg" title="Shirts 04" rel="lightbox[page_out]">
+                                <img id="data_0402" src="./cloth/4.jpg" width="100%" height="200px" onclick="show_items()">
+                            </TD>
+                        </TR>
+                        <TH colspan="2" id="data_0403"> 참빛관</TH>
+                        <TR>
+                            <TD align=left id="data_0404">130,000 원</TD>
+                            <TD align=left id="data_0405">Lacoste</TD>
+                        </TR>
+                    </TABLE>
+                </div>
+                <div id="entry">
+                    <TABLE id="item_05" cols=3 row=2>
+                        <tr>
+                            <td id="data_0501">
+                                Shirts 05
+                            </td>
+                        </tr>
+                        <TR>
+                            <TD align=left colspan="2">
+                                    <a id="gallery_e" href="./cloth/5.jpg" title="Shirts 05" rel="lightbox[page_out]">
+                                <img id="data_0502" src="./cloth/5.jpg" width="100%" height="200px" onclick="show_items()">
+                            </TD>
+                        </TR>
+                        <TH colspan="2" id="data_0503"> 새빛관</TH>
+                        <TR>
+                            <TD align=left id="data_0504">150,000 원</TD>
+                            <TD align=left id="data_0505">Lacoste</TD>
+                        </TR>
+                    </TABLE>
+                </div>
+            </section>
+        </div>
+    </center>
+    <script type="text/javascript">
+        $(function () {
+
+            $('#gallery_a').lightBox(); 
+            $('#gallery_b').lightBox();
+            $('#gallery_c').lightBox();
+            $('#gallery_d').lightBox();
+            $('#gallery_e').lightBox();
+
+            $('#gallery_f').lightBox();
+            $('#gallery_g').lightBox();
+            $('#gallery_h').lightBox();
+            $('#gallery_i').lightBox();
+            $('#gallery_j').lightBox();
+             
+        });
+    </script>
+
+
+</body>
+
+</html>
